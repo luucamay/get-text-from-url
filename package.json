@@ -1,0 +1,25 @@
+{
+  "name": "get-text-from-url",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A service to get text from an article url",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luucamay/get-text-from-url.git"
+  },
+  "author": "luucamay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luucamay/get-text-from-url/issues"
+  },
+  "homepage": "https://github.com/luucamay/get-text-from-url#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "got": "^13.0.0",
+    "html-to-text": "^9.0.5"
+  }
+}
