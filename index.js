@@ -1,27 +1,34 @@
 import got from 'got';
 import express from 'express';
-import { htmlToText } from 'html-to-text';
+import { Readability } from '@mozilla/readability';
+import { JSDOM } from 'jsdom';
 
 const app = express()
 const port = 3000
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/extract', (req, res) => {
-  // make html request
-  const url = 'https://dev.to/luucamay/the-week-i-danced-with-martha-graham-and-unleashed-ai-magic-at-rc-2d1a'
-  const data = got(url).text().then(
-    (htmlString) => {
-      const text = htmlToText(htmlString, {
-        wordwrap: 130
-      });
+app.get('/article/:url', (req, res) => {
+  // make request with Got
+  // use JSDOm to create a DOM in server
+  // use Readability to extract the article
 
-      res.send(text)
-    }
-  )
-  // convert html to text
+  // TO DO get the audio as soon as possible maybe stream for smaller parts
+  // TO DO check to use security defined by Readability Mozilla
+  // const url = 'https://dev.to/luucamay/the-week-i-danced-with-martha-graham-and-unleashed-ai-magic-at-rc-2d1a'
+  // TO DO Make sure the url is encoded in the client 'encodeURIComponent'
+  const url = req.params.url || 'https%3A%2F%2Fdev.to%2Fsteveblue%2Fthe-state-of-web-components-in-2022-1ip3'
+  got(url).text().then((html) => {
+    const doc = new JSDOM(html, {
+      url: url
+    });
+    let reader = new Readability(doc.window.document);
+    let article = reader.parse();
+    res.send(article)
+  })
 
 })
 
