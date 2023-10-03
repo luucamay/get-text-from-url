@@ -24,8 +24,5 @@
     "got": "^13.0.0",
     "html-to-text": "^9.0.5",
     "jsdom": "^22.1.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
   }
 }
