@@ -20,6 +20,8 @@ app.get('/article/:url', (req, res) => {
   // TO DO check to use security defined by Readability Mozilla
   // const url = 'https://dev.to/luucamay/the-week-i-danced-with-martha-graham-and-unleashed-ai-magic-at-rc-2d1a'
   // TO DO Make sure the url is encoded in the client 'encodeURIComponent'
+  // TO DO remove emojis?
+  // TO DO get text from PDF?
   const url = req.params.url || 'https%3A%2F%2Fdev.to%2Fsteveblue%2Fthe-state-of-web-components-in-2022-1ip3'
   got(url).text().then((html) => {
     const doc = new JSDOM(html, {
