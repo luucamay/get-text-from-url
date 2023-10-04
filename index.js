@@ -1,9 +1,11 @@
 import got from 'got';
 import express from 'express';
+import cors from 'cors';
 import { Readability } from '@mozilla/readability';
 import { JSDOM } from 'jsdom';
 
 const app = express()
+app.use(cors())
 const port = 3000
 
 

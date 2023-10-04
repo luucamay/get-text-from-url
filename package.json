@@ -20,6 +20,7 @@
   "homepage": "https://github.com/luucamay/get-text-from-url#readme",
   "dependencies": {
     "@mozilla/readability": "^0.4.4",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "got": "^13.0.0",
     "html-to-text": "^9.0.5",
